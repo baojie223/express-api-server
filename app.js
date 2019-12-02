@@ -20,17 +20,32 @@ const msgQueue = [
       'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png'
   }
 ]
-wss.on('connection', ws => {
-  ws.on('message', message => {
-    console.log('收到数据' + message)
-    msgQueue.push(JSON.parse(message))
-    ws.send(JSON.stringify(msgQueue), err => {
-      if (err) {
-        console.log(err)
-      }
-    })
-  })
-})
+// wss.on('connection', ws => {
+//   // ws.on('open', msg => {
+//   //   console.log(msg)
+//   //   ws.send(JSON.stringify(msgQueue), err => {
+//   //     if (err) {
+//   //       console.log(err)
+//   //     }
+//   //   })
+//   // })
+//   ws.on('message', message => {
+//     if (message === 'init') {
+//       ws.send(JSON.stringify(msgQueue), err => {
+//         if (err) {
+//           console.log(err)
+//         }
+//       })
+//       return
+//     }
+//     msgQueue.push(JSON.parse(message))
+//     ws.send(JSON.stringify(msgQueue), err => {
+//       if (err) {
+//         console.log(err)
+//       }
+//     })
+//   })
+// })
 
 var indexRouter = require('./routes/index')
 var usersRouter = require('./routes/users')

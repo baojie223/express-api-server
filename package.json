@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "SET DEBUG=my-express:* & npm start",
+    "dev": "nodemon ./bin/www",
+    "debug": "SET DEBUG=my-express:* & npm start",
     "start": "node ./bin/www"
   },
   "dependencies": {
@@ -14,6 +15,7 @@
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
     "morgan": "~1.9.1",
+    "socket.io": "^2.3.0",
     "ws": "^7.2.0"
   }
 }
