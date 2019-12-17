@@ -1,0 +1,33 @@
+@url = http://localhost:3000/api
+
+###
+
+POST {{url}}/auth/register
+Content-Type: application/json
+
+{
+  "username": "baojie",
+  "password": "123456"
+}
+
+###
+
+POST {{url}}/auth/login
+
+{
+  "username": "baojie",
+  "password": "123456"
+}
+
+###
+GET {{url}}/file/pdf
+
+###
+POST {{url}}/file/pdf
+Content-Type: application/json
+{
+  "html": "<h1>hello</h1>"
+}
+
+###
+GET {{url}}/users
