@@ -2,7 +2,9 @@ const router = require('express').Router()
 const fs = require('fs')
 const path = require('path')
 const puppeteer = require('puppeteer')
-// const bodyParser = require('body-parser')
+
+const { auth } = require('../utils/auth')
+router.use(auth)
 
 router.post('/pdf', async (req, res) => {
   fs.unlinkSync('result.pdf')

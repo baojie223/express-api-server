@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const { Schema } = mongoose
 const bcrypt = require('bcryptjs')
 
 mongoose.connect('mongodb://localhost:27017/Auth', {
@@ -7,7 +8,7 @@ mongoose.connect('mongodb://localhost:27017/Auth', {
   useUnifiedTopology: true
 })
 
-const UserSchema = new mongoose.Schema({
+const userSchema = new Schema({
   username: {
     type: String,
     unique: true
@@ -20,6 +21,6 @@ const UserSchema = new mongoose.Schema({
   }
 })
 
-const User = mongoose.model('user', UserSchema)
+const User = mongoose.model('User', userSchema)
 
 module.exports = { User }
