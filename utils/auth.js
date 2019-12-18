@@ -4,12 +4,15 @@ const SECRET = 'token'
 
 const auth = (req, res, next) => {
   try {
+    console.log(req.headers.authorization)
     const token = req.headers.authorization.slice(7)
-    const decoded = jwt.verify(token, SECRET)
+    const { id } = jwt.verify(token, SECRET)
     // const user = await User.findById(id).exec()
-    next()
+    console.log(id)
+    next(id)
   } catch (e) {
-    res.status = 401
+    console.log(e)
+    res.status(401)
     res.send(e)
   }
 }

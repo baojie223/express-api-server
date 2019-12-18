@@ -5,6 +5,8 @@ const jwt = require('jsonwebtoken')
 
 const SECRET = 'token'
 
+const { auth } = require('../utils/auth')
+
 router.post('/register', async (req, res) => {
   try {
     const { username, password } = req.body
@@ -37,12 +39,14 @@ router.post('/login', async (req, res) => {
   }
 })
 
-router.get('/profile', async (req, res) => {
+router.get('/profile', [auth], async (req, res) => {
   try {
     const { id } = jwt.verify(req.headers.authorization.slice(7), SECRET)
     const user = await User.findById(id).exec()
+    console.log(user)
     res.send(user)
   } catch (err) {
+    console.log(err)
     res.send(err)
   }
 })

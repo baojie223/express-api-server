@@ -22,6 +22,7 @@ Content-Type: application/json
 
 ###
 GET {{url}}/auth/profile
+Authorization: Bearer 1eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkZjliOTBjOTBmZmJkMjhjMGY3ZDRhNyIsImlhdCI6MTU3NjY0ODc0OH0.50PSAm_QGZQ5UlHFyQzsNsG3bkmDRoWVTuyuPp8sOYg
 
 ###
 GET {{url}}/file/pdf
